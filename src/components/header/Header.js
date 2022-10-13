@@ -1,7 +1,7 @@
 import React from 'react';
 import "./headerStyles.scss";
 
-const Header = () => {
+const Header = (length) => {
     const imgCart = "/img/icons/cart.png"
     const imgFav = "/img/icons/fav.png"
     return (
@@ -10,20 +10,21 @@ const Header = () => {
                 QPICK
             </a>
             <div className="header-section">
-                <div >
-                    <a href="/">
-                        <div className="fav">
-                            <img src={imgFav}/>
-                            <span className="count_circle">2</span>
-                        </div>
-                    </a>
+                <div className='fav'>
 
+                    <div className="element-box">
+                        <a href="/">
+                            <img src={imgFav}/>
+                            <div className="count_circle">2</div>
+                        </a>
+                    </div>
                 </div>
-                <div>
+
+                <div className='element-box'>
                     <a href="/cart">
                         <img src={imgCart}/>
                         {localStorage.length > 0 &&
-                            <span className="count_circle">{localStorage.length}</span>
+                            <div className="count_circle">{length.props}</div>
                         }
                     </a>
                 </div>

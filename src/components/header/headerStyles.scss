@@ -20,22 +20,26 @@
     margin-left: auto;
 
     .fav {
-      margin-right: 45px;
+      padding-right: 45px;
     }
-
-    .count_circle {
-      height: 17.4px;
-      width: 17.4px;
-      position: absolute;
-      z-index: 2;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 15px;
-      line-height: 18px;
-      text-align: center;
-      color: #FFFFFF;
-      border-radius: 50%;
-      background-color: #FFA542;
+    .element-box{
+      display: flex;
+      .count_circle {
+        position: relative;
+        left: 77%;
+        top:-67%;
+        height: 17px;
+        width: 17px;
+        z-index: 2;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 18px;
+        text-align: center;
+        color: #FFFFFF;
+        border-radius: 50%;
+        background-color: #FFA542;
+      }
     }
   }
 }
