@@ -1,15 +1,14 @@
-import React, {useEffect, useReducer, useState} from 'react';
+import React, {useState} from 'react';
 import "./cartCardStyles.scss"
 
 const CartCard = (props) => {
 
-    const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
-
+    const [update, setUpdate] = useState(0)
 
     const deleteFromCart = () => {
         localStorage.removeItem(props.data[0])
-        console.log("удалено: " + props.data[0])
-        forceUpdate();
+        setUpdate(update + 1)
+        props.onChange()
     }
 
     const addOne = () => {
@@ -17,9 +16,8 @@ const CartCard = (props) => {
         let array =
             [props.data[0], props.data[1], props.data[2], props.data[3], count];
         localStorage.setItem(props.data[0], JSON.stringify(array));
-        console.log("добавлено: " + props.data[0])
-        forceUpdate();
-
+        setUpdate(update + 1)
+        props.onChange()
     }
 
     const deleteOne = () => {
@@ -31,8 +29,8 @@ const CartCard = (props) => {
         } else {
             deleteFromCart()
         }
-        forceUpdate();
-        console.log("удалено: " + props.data[0])
+        setUpdate(update + 1)
+        props.onChange()
     }
 
 
@@ -53,8 +51,8 @@ const CartCard = (props) => {
                     <div className="total-price">{props.data[3] * props.data[4]} ₽</div>
                 </div>
 
-                <span className="trash-can" onClick={deleteFromCart}>
-                    <img src='/img/icons/trash.png'/>
+                <span className="trash-can">
+                    <img src='/img/icons/trash.png' onClick={deleteFromCart}/>
                 </span>
             </div>
         </div>

@@ -1,12 +1,12 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import "../../App.scss"
 import Card from "./card/Card";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 
 const Home = () => {
-    // localStorage.clear()
 
+    // localStorage.clear()
     const headphones = [
         {
             id: 1,
@@ -22,7 +22,7 @@ const Home = () => {
             image: "/img/EarPods.png",
             title: "Apple EarPods",
             curPrice: 12599,
-            oldPrice: 13999,
+            oldPrice: 12599,
             rate: 4.2,
             count: 1
         },
@@ -94,15 +94,25 @@ const Home = () => {
         },
     ]
 
+    const [length, setLength] = useState(0);
+
+    useEffect(() => {
+        setLength(Number(localStorage.length))
+    },[]);
+
+    const onChange=()=>{
+        setLength(Number(localStorage.length))
+    }
+
     return (
         <div className="body container">
-            <Header/>
+            <Header props ={length}/>
             <p className='list-title'>Наушники</p>
             <div className="card-list">
 
                 {headphones.map(item =>
                     <div className="card">
-                        <Card key={item.id} data={item}/>
+                        <Card key={item.id} data={item} onChange={onChange}/>
                     </div>
                 )}
             </div>

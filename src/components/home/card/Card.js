@@ -4,19 +4,18 @@ import "./cardStyles.scss";
 const Card = (props) => {
 
     const addToCart = () => {
-
         if (localStorage.hasOwnProperty(props.data.id)) {
             console.log(localStorage.getItem(props.data.id))
-            props.data.count+=1
+            props.data.count += 1
             let array =
                 [props.data.id, props.data.image, props.data.title, props.data.curPrice, props.data.count];
             localStorage.setItem(props.data.id, JSON.stringify(array));
-        }else{
+        } else {
             let array = [props.data.id, props.data.image, props.data.title, props.data.curPrice, props.data.count];
             localStorage.setItem(props.data.id, JSON.stringify(array));
             console.log(localStorage.getItem(props.data.id))
         }
-
+        props.onChange()
     }
 
     return (
