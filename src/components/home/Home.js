@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import "../../App.scss"
 import Card from "./card/Card";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
-
+import "./homeStyles.scss"
 const Home = () => {
 
     // localStorage.clear()
