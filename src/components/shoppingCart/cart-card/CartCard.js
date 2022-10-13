@@ -40,7 +40,7 @@ const CartCard = (props) => {
                 <img className="cart-card-img" src={props.data[1]} alt={props.data[2]}/>
                 <div className="cart-card-info">
                     <p className='cart-card-title'>{props.data[2]}</p>
-                    <p className="cart-card-price">{props.data[3]} ₽</p>
+                    <p className="cart-card-price">{(props.data[3]).toLocaleString('ru')} ₽</p>
                 </div>
                 <div className="bottom-counter">
                     <div className="ellipse" onClick={deleteOne}>-</div>
@@ -48,7 +48,7 @@ const CartCard = (props) => {
 
                     <div className="ellipse" onClick={addOne}>+</div>
 
-                    <div className="total-price">{props.data[3] * props.data[4]} ₽</div>
+                    <div className="total-price">{(props.data[3] * props.data[4]).toLocaleString('ru')} ₽</div>
                 </div>
 
                 <span className="trash-can">

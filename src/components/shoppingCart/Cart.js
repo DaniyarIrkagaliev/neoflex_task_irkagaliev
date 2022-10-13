@@ -33,7 +33,9 @@ const Cart = () => {
         for (let key of keys) {
             cartItems.push(JSON.parse(localStorage.getItem(key)))
         }
-        sum = cartItem.map(o => +(o[3] * o[4])).reduce((a, b) => a + b)
+        sum =(cartItems.map(o => +(o[3] * o[4])).reduce((a, b) => a + b))
+        setSum(sum.toLocaleString('ru'))
+        setCardItem(cartItems)
     }
 
     return (
