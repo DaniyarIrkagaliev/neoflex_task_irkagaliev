@@ -26,15 +26,22 @@ const Card = (props) => {
             <div className='card-info'>
                 <div className='card-row'>
                     <span className='card-title'>{props.data.title}</span>
-                    <span className='card-price'>{props.data.curPrice} ₽</span>
-
+                    <div>
+                        <span className='card-price'>{props.data.curPrice} ₽</span>
+                        <div className='card-price-old'>
+                            {props.data.curPrice < props.data.oldPrice &&
+                                <span >{props.data.oldPrice} ₽</span>
+                            }
+                        </div>
+                    </div>
                 </div>
                 <div className='card-row'>
-                <span className='card-rate'>
-                    <span>
-                        <img src='/img/icons/star.png'/>
+                    <span className='card-rate'>
+                        <span>
+                            <img src='/img/icons/star.png'/>
+                        </span>
+                        {props.data.rate}
                     </span>
-                    {props.data.rate}</span>
                     <a className='buy-text' onClick={addToCart}>Купить</a>
                 </div>
             </div>
