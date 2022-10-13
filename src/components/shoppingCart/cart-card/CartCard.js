@@ -21,7 +21,7 @@ const CartCard = (props) => {
     }
 
     const deleteOne = () => {
-        if (props.data[4] > 0) {
+        if ((props.data[4]-1) > 0) {
             let count = props.data[4] -= 1;
             let array =
                 [props.data[0], props.data[1], props.data[2], props.data[3], count];
